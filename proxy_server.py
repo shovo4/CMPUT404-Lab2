@@ -51,12 +51,12 @@ def main():
                 print("Started P")
             conn.close()
 
-def handle_echo(proxy_end, addr, conn):
-    send_full_data = conn.recv(BUFFER_SIZE)
-    print(f"Sending received data {send_full_data} to google")
-    proxy_end.sendall(send_full_data)
-    proxy_end.shutdown(socket.SHUT_WR)
-    data = proxy_end.recv(BUFFER_SIZE)
+def handle_echo(s, addr, conn):
+    full_data = conn.recv(BUFFER_SIZE)
+    print(f"Sending received data {full_data} to google")
+    s.sendall(full_data)
+    s.shutdown(socket.SHUT_WR)
+    data = s.recv(BUFFER_SIZE)
     print(f"Sending received data {data} to client")
     conn.send(data)
 
