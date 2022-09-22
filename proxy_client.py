@@ -5,7 +5,7 @@ host = 'localhost'
 port = 8002 #c
 payload = f'GET / HTTP/1.0\r\nHost: www.google.com\r\n\r\n'
 buffer_size = 1024
-
+#edited
 
 def get_remote_ip(host):
     print(f'Getting IP for {host}')
